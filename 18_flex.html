@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>彈性盒子</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 60px 20px;
+        }
+
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        h1 {
+            color: white;
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        p {
+            margin: auto;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        p.Lorem {
+            max-width: 800px;
+            text-align: justify;
+        }
+        
+        /* 統一按鈕風格 */
+        .back-link {
+            display: inline-block;
+            padding: 12px 25px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background: #f0f0f0;
+        }
+        
+        .parent {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: auto;
+            padding: 20px 10px;;
+            width: 800px;
+            height: 100%;
+            background-color: lightblue;
+            text-align: justify;
+            align-content: center;
+            color: red;
+            font-size: 20px;
+        }
+
+        .parent-column {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px auto;
+            padding: 20px 10px;;
+            width: 40%;
+            height: 800px;
+            background-color: lightblue;
+            text-align: justify;
+            align-content: center;
+            color: red;
+            font-size: 20px;
+        }
+
+        .wrap {
+            flex-wrap: wrap;
+        }
+
+        .child {
+            margin: 5px;
+            padding: 5px;
+            background-color: lightgreen;
+            width: 30%;
+            text-align: left;
+        }
+
+        .child-column {
+            margin: 5px;
+            padding: 5px;
+            background-color: lightgreen;
+            width: 80%;
+            height: 100%;
+            text-align: left;
+        }
+
+        .hidden {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <a href="./index.html" class="back-link">← 返回首頁</a>
+        
+        <br>
+
+        <a href="./page/glex.html" class="back-link">← 彈性盒子的練習</a>
+
+        <h1>彈性盒子</h1>
+        
+        <p>彈性盒子可以增加網頁修改的靈活度</p>
+
+        <p class="Lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ab accusantium magni vero ratione nesciunt, repellat assumenda expedita ex vitae quos quae debitis pariatur repellendus incidunt beatae fugit dignissimos modi?</p>
+        <div class="parent">
+            <div class="child">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ab accusantium magni vero ratione nesciunt, repellat assumenda expedita ex vitae quos quae debitis pariatur repellendus incidunt beatae fugit dignissimos modi?</div>
+            <div class="child">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ab accusantium magni vero ratione nesciunt, repellat assumenda expedita ex vitae quos quae debitis pariatur repellendus incidunt beatae fugit dignissimos modi?</div>
+            <div class="child">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ab accusantium magni vero ratione nesciunt, repellat assumenda expedita ex vitae quos quae debitis pariatur repellendus incidunt beatae fugit dignissimos modi?</div>
+        </div>
+
+        <div class="parent-column">
+            <div class="child-column">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ab accusantium magni vero ratione nesciunt, repellat assumenda expedita ex vitae quos quae debitis pariatur repellendus incidunt beatae fugit dignissimos modi?</div>
+            <div class="child-column">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ab accusantium magni vero ratione nesciunt, repellat assumenda expedita ex vitae quos quae debitis pariatur repellendus incidunt beatae fugit dignissimos modi?</div>
+            <div class="child-column">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ab accusantium magni vero ratione nesciunt, repellat assumenda expedita ex vitae quos quae debitis pariatur repellendus incidunt beatae fugit dignissimos modi?</div>
+        </div>
+
+        <div class="parent wrap">
+            <div class="child">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ab accusantium magni vero ratione nesciunt, repellat assumenda expedita ex vitae quos quae debitis pariatur repellendus incidunt beatae fugit dignissimos modi?</div>
+            <div class="child">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ab accusantium magni vero ratione nesciunt, repellat assumenda expedita ex vitae quos quae debitis pariatur repellendus incidunt beatae fugit dignissimos modi?</div>
+            <div class="child hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ab accusantium magni vero ratione nesciunt, repellat assumenda expedita ex vitae quos quae debitis pariatur repellendus incidunt beatae fugit dignissimos modi?</div>
+            <div class="child hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ab accusantium magni vero ratione nesciunt, repellat assumenda expedita ex vitae quos quae debitis pariatur repellendus incidunt beatae fugit dignissimos modi?</div>
+            <div class="child">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ab accusantium magni vero ratione nesciunt, repellat assumenda expedita ex vitae quos quae debitis pariatur repellendus incidunt beatae fugit dignissimos modi?</div>
+            <div class="child">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ab accusantium magni vero ratione nesciunt, repellat assumenda expedita ex vitae quos quae debitis pariatur repellendus incidunt beatae fugit dignissimos modi?</div>
+            <div class="child">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ab accusantium magni vero ratione nesciunt, repellat assumenda expedita ex vitae quos quae debitis pariatur repellendus incidunt beatae fugit dignissimos modi?</div>
+            <div class="child hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ab accusantium magni vero ratione nesciunt, repellat assumenda expedita ex vitae quos quae debitis pariatur repellendus incidunt beatae fugit dignissimos modi?</div>
+            <div class="child">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ab accusantium magni vero ratione nesciunt, repellat assumenda expedita ex vitae quos quae debitis pariatur repellendus incidunt beatae fugit dignissimos modi?</div>
+        </div>
+    </div>
+    
+</body>
+</html>

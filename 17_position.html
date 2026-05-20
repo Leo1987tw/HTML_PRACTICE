@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>浮動元素</title>
+    <title>元素位置</title>
     <style>
         * {
             margin: 0;
@@ -68,30 +68,46 @@
         div.box {
             margin: 10px;
             padding: 20px 10px;;
-            width: 200px;
-            height: 200px;
-            position: relative;
+            width: 300px;
+            height: 300px;
             background-color: red;
             text-align: justify;
             align-content: center;
             color: lightcyan;
-            font-size: 24px;
+            font-size: 20px;
         }
 
         div.box1 {
-            float: right;
-            margin: auto;
+            position: static;
+            margin: 10px;
         }
 
         div.box2 {
-            float: left;
-            margin: auto;
+            position: relative;
+            top: 10px;
+            left: 10px;
         }
 
         div.box3 {
-            float: right;
-            clear: both;
-            margin: auto;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        div.box4 {
+            position: sticky;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        div.box5 {
+            width: 70%;
+            height: 70%;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: blue;
+            background-repeat: no-repeat;
         }
     </style>
 </head>
@@ -102,19 +118,24 @@
         
         <br>
 
-        <a href="./page/float_practice.html" class="back-link">← 浮動元素float 的練習</a>
+        <a href="./page/position_practice.html" class="back-link">← 元素位置的練習</a>
 
-        <h1>浮動元素</h1>
+        <h1>元素位置</h1>
         
-        <p>這是浮動元素範例</p>
+        <p>元素位置有分相對位置與絕對位置等</p>
 
         <p class="Lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique hic consectetur quas odit? Voluptatem dicta reiciendis error aspernatur aliquam harum odio officia laborum alias? Quis reprehenderit quae velit cum accusamus.</p>
-        <div class="box box1">浮動在畫面的右邊，下方文字則出現在左邊</div>
+        <div class="box box1">static 網頁預設排版位置</div>
         <p class="Lorem">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum delectus optio assumenda, sit voluptatibus earum iste est nemo ab, a quibusdam ad odio hic provident exercitationem praesentium iusto expedita reprehenderit?</p>
-        <div class="box box2">浮動在畫面的左邊，下方文字則出現在右邊</div>
+        <div class="box box2">relative 下指令top: 10px; left: 10px; 相對於預設值位置的右下角十像素</div>
         <p class="Lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ab accusantium magni vero ratione nesciunt, repellat assumenda expedita ex vitae quos quae debitis pariatur repellendus incidunt beatae fugit dignissimos modi?</p>
-        <div class="box box3">下指令clear: both; 則兩邊都不能夠有浮動元素</div>
+        <div class="box box3">fixed 下指令bottom: 10px; right: 10px; 固定出現在右下角離邊界十像素的位置</div>
         <p class="Lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ab accusantium magni vero ratione nesciunt, repellat assumenda expedita ex vitae quos quae debitis pariatur repellendus incidunt beatae fugit dignissimos modi?</p>
+        <div class="box box4">sticky 下指令bottom: 10px; right: 10px; 固定出現在右下角離邊界十像素的位置</div>
+        <p class="Lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ab accusantium magni vero ratione nesciunt, repellat assumenda expedita ex vitae quos quae debitis pariatur repellendus incidunt beatae fugit dignissimos modi?</p>
+        <div class="box box2">
+            <div class="box box5">abolute 下指令bottom: 10px; right: 10px; 固定出現在右下角離邊界十像素的位置(父容器不可以是static)</div>
+        </div>
     </div>
     
 </body>

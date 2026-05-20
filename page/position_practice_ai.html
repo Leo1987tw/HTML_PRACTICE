@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh_TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>柔筋堂</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            /* 1. 全站套用圓潤飽滿的中文字型，符合中醫整復的沉穩東方風格 */
+            font-family: "Microsoft JhengHei", "PMingLiU", "BiauKai", sans-serif;
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+            background-color: wheat;
+            text-align: center;
+        }
+
+        div {
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 3.2em; /* 微調放大 */
+            color: saddlebrown;
+            font-weight: 800; /* 加粗大標增加氣勢 */
+            letter-spacing: 6px; /* 增加中文字距 */
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            color: saddlebrown;
+            font-size: 1.8em; /* 縮小副標，優化視覺層級 */
+            letter-spacing: 4px;
+            font-weight: 400;
+            margin-top: 5px;
+        }
+
+        table {
+            margin: auto;
+            width: 80%;
+            height: 100%vh;
+        }
+
+        td {
+            margin: auto;
+        }
+        
+        .box {
+            margin: 10px;
+            width: 300px;
+            height: 300px;
+        }
+
+        .box1 {
+            position: relative;
+            background-image: url('../images/001.jpg');
+            background-color: rgba(255,255,255,0.9);
+            backdrop-filter: blur(10px);
+            background-size: cover;
+        }
+
+        .box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0); /* 預設不顯示顏色 */
+            transition: all 0.3s ease; /* 讓動態變色更平滑 */
+            z-index: 1; /* 讓遮罩壓在背景圖上方 */
+        }
+
+        .box:hover::before {
+            background-color: rgba(255, 255, 255, 0.75); /* 微調透明度至75%，確保滑鼠移入時白色背景夠乾淨，文字更好閱讀 */
+            backdrop-filter: blur(3px);                  /* 模糊文字下方的圖片細節 */
+            -webkit-backdrop-filter: blur(3px);
+        }
+
+        .box > p{
+            display: none;
+            position: absolute;
+            width: 100%;
+            padding: 30px 25px; /* 適度縮減內襯，防止字體過大時溢出300px容器 */
+            text-align: justify;
+            font-size: 15px; /* 優化閱讀大小，原本20px在300px小方格內字數多時會顯得過於擁擠 */
+            line-height: 1.6; /* 調整行高，讓多行說明文字有呼吸空間 */
+            letter-spacing: 1px; /* 微調字距 */
+            color: #2b2b2b; /* 進階深木炭黑，比純黑更有質感 */
+            z-index: 2;
+        }
+
+        .box6 > p{
+            display: block;
+            position: static;
+            width: 100%;
+            padding: 0px;
+            font-size: 15px; /* 統一字體大小 */
+            line-height: 1.8; /* 增加行高，解決聯絡資訊原本全部黏在一起的壓迫感 */
+            color: #3e2723; /* 深咖啡色調，呼應養生堂整體風格 */
+            margin: 0 0 12px 0; /* 增加段落之間的下邊距，讓閱讀更清晰 */
+            letter-spacing: 0.5px;
+        }
+
+        .box:hover > p {
+            display: block;
+            z-index: 2;
+            color: #2b2b2b; /* 保持一致的質感深炭黑 */
+        }
+
+        .box6:hover::before {
+            background-color: rgba(255, 255, 255, 0); /* 65% 透明度的白 */
+            backdrop-filter: blur(0px);                  /* 模糊文字下方的圖片細節 */
+            -webkit-backdrop-filter: blur(0px);
+        }
+
+        .box2 {
+            position: relative;
+            background-image: url('../images/002.jpg');
+            background-size: cover;
+        }
+
+        .box3 {
+            position: relative;
+            background-image: url('../images/003.jpg');
+            background-size: cover;
+        }
+
+        .box4 {
+            position: relative;
+            background-image: url('../images/004.jpg');
+            background-size: cover;
+        }
+
+        .box5 {
+            position: relative;
+            background-image: url('../images/005.jpg');
+            background-size: cover;
+        }
+        
+        .box6 {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            top: 20px;
+            text-align: justify;
+            padding: 10px 15px; /* 為第六格增加內距，讓內文不貼邊 */
+        }
+
+        .tap1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 25%;
+            height: 25%;
+            color: saddlebrown;
+            font-size: 32px;
+            font-weight: bold; /* 加粗代號 A B C D E */
+        }
+
+        .tap2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            width: 35%; /* 稍微加寬，避免大金額「NT$1950」被截斷或擠壓 */
+            height: 20%;
+            color: #b71c1c; /* 改為傳統硃砂紅，取代原本刺眼的純紅，質感大幅提升 */
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .tap3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            width: 35%; /* 稍微加寬 */
+            height: 20%;
+            color: #1b5e20; /* 改為沉穩深松綠，取代刺眼的純綠，更符合草本、養生概念 */
+            font-size: 18px; /* 四個中文字，稍微縮小一字級確保不超出範圍 */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1>柔筋堂</h1>
+        <h2>骨往筋來整復推拿養生中心</h2>
+    </div>
+
+    <table>
+        <tr>
+            <td>
+                <div class="box box1">
+                    <p>深層鬆筋解除硬梆梆！半身整復舒緩推拿30分(純手技30分)〈專業說明 + 半身肌肉放鬆 + 上半身(頸肩背)舒緩放鬆〉</p>
+                    <div class="tap1"><p>A</p></div>
+                    <div class="tap2"><p>NT$700</p></div>
+                    <div class="tap3"><p>30分鐘</p></div>
+                </div>
+            </td>
+            <td>
+                <div class="box box2">
+                    <p>痠痛僵硬專科！全身整復舒緩推拿60分(純手技60分)〈專業說明 + 紅豆熱敷毯釋壓10分鐘 + 全身肌肉放鬆 + 骨架平衡調整 + 全身筋膜舒緩調理〉</p>
+                    <div class="tap1"><p>B</p></div>
+                    <div class="tap2"><p>NT$1200</p></div>
+                    <div class="tap3"><p>60分鐘</p></div>
+                </div>
+            </td>
+            <td>
+                <div class="box box3">
+                    <p>深層解壓舒緩調理！全身12經絡，骨盆、骨架整復推拿90分(純手技90分)〈專業說明 + 紅豆熱敷毯釋壓10分鐘 + 全身肌肉放鬆 + 12經絡按摩 + 骨盆、骨架平衡調整 + 小腿筋膜舒緩〉</p>
+                    <div class="tap1"><p>C</p></div>
+                    <div class="tap2"><p>NT$1580</p></div>
+                    <div class="tap3"><p>90分鐘</p></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="box box4">
+                    <p>顱、薦椎深層解壓舒緩放鬆調理！全身14經絡，顱薦筋膜放鬆整復推拿120分(純手技120分)〈專業說明 + 紅豆熱敷毯釋壓10分鐘 + 全身肌肉放鬆 + 14經絡按摩 + 骨盆骨架平衡調整 + 小腿筋膜放鬆 + 顱、薦椎深層解壓放鬆〉</p>
+                    <div class="tap1"><p>D</p></div>
+                    <div class="tap2"><p>NT$1950</p></div>
+                    <div class="tap3"><p>120分鐘</p></div>
+                </div>
+            </td>
+            <td>
+                <div class="box box5">
+                    <p>牛角小臉鬆筋30分(純手技30分)〈臉部經絡筋膜調理 + 眼輪肌舒壓 + 筋膜放鬆 + 小臉拉提 + 精油保養〉</p>
+                    <div class="tap1"><p>E</p></div>
+                    <div class="tap2"><p>NT$880</p></div>
+                    <div class="tap3"><p>30分鐘</p></div>
+                </div>
+            </td>
+            <td>
+                <div class="box box6">
+                    <p><b>我要預約：</b>0953-133-123、0935-681-998</p>
+                    <p><b>如何前往：</b>台北市松山區復興北路179號7樓之3(近捷運南京復興站7號出口)</p>
+                    <p><b>營業時間：</b>週二至週日 11:00~21:30</p>
+                    <p><b>休息時間：</b>每週週三</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
