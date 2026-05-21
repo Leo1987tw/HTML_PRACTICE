@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh_TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>彈性盒子的練習</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            background-color: wheat;
+        }
+
+        h1 {
+            text-align: center;
+            color: aquamarine;
+            font-size: 48px
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin: 0px
+            height: 2000px;
+        }
+
+        .box1, .box2, .box3, .box4 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 800px;
+        }
+
+        div.box {
+            margin: 10px;
+            height: 200px;
+            border: 1px solid black;
+        }
+
+        .box11 {
+            width: 800px;
+            height: 200px;
+            background-color: aqua;
+        }
+
+        .box21 {
+            width: 400px;
+            height: 200px;
+            background-color: darkgoldenrod;
+        }
+
+        .box22 {
+            width: 400px;
+            height: 200px;
+            background-color: cornflowerblue;
+        }
+
+        .box31 {
+            width: 266px;
+            height: 200px;
+            background-color: chocolate;
+        }
+
+        .box32 {
+            width: 266px;
+            height: 200px;
+            background-color: brown;
+        }
+
+        .box33 {
+            width: 266px;
+            height: 200px;
+            background-color: blueviolet;
+        }
+
+        .box41 {
+            width: 200px;
+            height: 200px;
+            background-color: lightsalmon;
+        }
+
+        .box42 {
+            width: 200px;
+            height: 200px;
+            background-color: lightgreen;
+        }
+
+        .box43 {
+            width: 200px;
+            height: 200px;
+            background-color: lightcoral;
+        }
+
+        .box44 {
+            width: 200px;
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>彈性盒子的練習</h1>
+
+    <div class="container">
+        <div class="box1">
+            <div class="box box11"></div>
+        </div>
+        <div class="box2">
+            <div class="box box21"></div>
+            <div class="box box22"></div>
+        </div>
+        <div class="box3">
+            <div class="box box31"></div>
+            <div class="box box32"></div>
+            <div class="box box33"></div>
+        </div>
+        <div class="box4">
+            <div class="box box41"></div>
+            <div class="box box42"></div>
+            <div class="box box43"></div>
+            <div class="box box44"></div>
+        </div>
+    </div>
+</body>
+</html>

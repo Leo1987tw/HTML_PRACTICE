@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh_TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-ON</title>
+    <style>
+        /* 全域初始化 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            /* 移除原本限制的 height: 100%，允許內容自由向下延伸拉長 */
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            background-image: url(./images/kon.png);
+            background-position: 0% 42%;
+            background-size: 100%;
+            background-attachment: fixed;
+            /* 背景圖固定，隨卷軸滾動產生視差效果 */
+        }
+
+        /* 頁首固定在最上方 */
+        header {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 140px;
+            background-color: rgb(57, 160, 71);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 1000;
+        }
+
+        /* 導覽列按鈕樣式 */
+        div.header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 120px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.9);
+            /* 奶油白 */
+            border: 2px solid #333333;
+            /* 文青深灰框 */
+            border-radius: 20px;
+            font-size: 20px;
+            color: #333333;
+            /* 深灰字體 */
+            font-weight: bold;
+            transition: all 0.3s ease; /* 順便為按鈕加上過渡，體驗更好 */
+            cursor: pointer;
+        }
+
+        /* 按鈕滑鼠懸停效果 */
+        div.header:hover {
+            background-color: rgb(152, 231, 231);
+            transform: translateY(-2px);
+        }
+
+        .header_right_container {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* 頁尾固定在最下方 */
+        footer {
+            position: fixed;
+            bottom: 0px;
+            left: 0px;
+            width: 100%;
+            height: 140px;
+            background-color: rgb(57, 160, 71);
+            z-index: 1000;
+            /* 新增以下三行，讓頁尾文字完美置中 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 16px;
+        }
+
+        /* 主要內容包裹區：透過 gap 與 margin 拉高上下空間 */
+        div.body {
+            margin-top: 100px;
+            /* 增加與頁首的上方安全距離 */
+            margin-bottom: 100px;
+            /* 增加與頁尾的下方安全距離 */
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 120px;
+            /* 💡 大幅增加各區塊之間的上下垂直間距，讓畫面變長 */
+        }
+
+        /* 區塊一：Headline 大標題區 */
+        div.one {
+            text-align: center;
+            padding: 150px 0;
+            /* 💡 大幅加高上下內距，大幅拉長卷軸空間 */
+        }
+
+        h1 {
+            font-size: 240px;
+            color: rgb(200, 216, 233);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            margin-bottom: 30px;
+        }
+
+        a {
+            display: inline-block;
+            padding: 15px 40px;
+            border: 2px solid black;
+            text-align: center;
+            color: rgb(221, 82, 94);
+            font-size: 48px;
+            text-decoration: none;
+            background-color: rgba(255, 255, 255, 0.8);
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            background-color: rgb(221, 82, 94);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* 區塊二：Our Services 圖片水平排列區 */
+        div.two {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            width: 100%;
+            padding: 80px 0;
+            /* 💡 為圖片區塊增加上下高度空間 */
+        }
+
+        div.two>div {
+            flex: 1;
+            border: 1px solid #ccc;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            min-height: 300px;
+            /* 💡 設定最小高度，確保圖片格子在垂直方向有足夠厚度 */
+            overflow: hidden;          /* 💡 確保圖片放大時不會超出外層格子的框線 */
+            cursor: pointer;
+        }
+
+        div.two img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.4s ease, filter 0.4s ease; /* 💡 設定平滑動畫時間 */
+        }
+
+        /* 💡 區塊二滑鼠移入時：圖片放大 1.08 倍並稍微提高亮度 */
+        div.two>div:hover img {
+            transform: scale(1.08);
+            filter: brightness(1.1);
+        }
+
+        /* 區塊三：下方表格佈局區 */
+        div.three {
+            width: 100%;
+            padding-bottom: 80px;
+            /* 💡 確保底部滾動到底時有足夠空間留白 */
+        }
+
+        table {
+            width: 100%;
+            height: 600px;
+            /* 💡 將表格高度從原本的 400px 提高到 600px，拉長畫面 */
+            border: 1px solid black;
+            border-collapse: collapse;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        td {
+            border: 1px solid black;
+            width: 50%;
+            height: 50%; /* 確保上下儲存格等高 */
+            text-align: center;
+            padding: 0;  /* 清除儲存格內距，讓圖片完美貼邊 */
+            overflow: hidden; /* 防止圖片溢出邊框 */
+            cursor: pointer;
+        }
+
+        /* 讓四宮格表格內的圖片完美佔滿格子的核心設定 */
+        td img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: fill; /* 讓圖片不留白、完全填滿填足儲存格空間 */
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), filter 0.3s ease; /* 💡 流暢的緩動動畫 */
+        }
+
+        /* 💡 區塊三四宮格滑鼠移入時：圖片向內微微放大，並增加陰影質感 */
+        td:hover img {
+            transform: scale(1.05);
+            filter: contrast(1.05) brightness(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 固定頁首 -->
+    <header>
+        <div class="header header_left">K-ON</div>
+        <div class="header_right_container">
+            <div class="header header_right">About</div>
+            <div class="header header_right">Member</div>
+            <div class="header header_right">Song</div>
+        </div>
+    </header>
+
+    <!-- 網頁主體內容 -->
+    <div class="body">
+        <!-- 區塊一：Headline -->
+        <div class="one">
+            <h1>K-ON!</h1>
+            <a href="#">GET STARTED</a>
+        </div>
+
+        <!-- 區塊二：圖片展示區（保留原圖檔連結） -->
+        <div class="two">
+            <div><img src="./images/kon 1.png" alt=""></div>
+            <div><img src="./images/kon 2.png" alt=""></div>
+            <div><img src="./images/kon 3.png" alt=""></div>
+            <div><img src="./images/kon 4.png" alt=""></div>
+            <div><img src="./images/kon 5.png" alt=""></div>
+        </div>
+
+        <!-- 區塊三：四宮格表格區 -->
+        <div class="three">
+            <table>
+                <tr>
+                    <td><img src="./images/ritsu.png" alt=""></td>
+                    <td><img src="./images/yui.png" alt=""></td> <!-- 修正語法：補上結尾的 > -->
+                </tr>
+                <tr>
+                    <td><img src="./images/tsumugi.png" alt=""></td> <!-- 修正語法：補上結尾的 > -->
+                    <td><img src="./images/mio.png" alt=""></td> <!-- 修正語法：補上結尾的 > -->
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- 固定頁尾 -->
+    <footer>
+        &copy; 2026 放課後ティータイム (HTT) All Rights Reserved.
+    </footer>
+</body>
+
+</html>
