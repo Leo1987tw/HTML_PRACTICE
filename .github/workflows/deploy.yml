@@ -1,4 +1,4 @@
-name: 🚀 自動外送網頁到免費主機 (終極全自動多專案版)
+name: 🚀 自動外送網頁到免費主機 (終極全自動版)
 
 on:
   push:
@@ -15,17 +15,15 @@ jobs:
 
     - name: 🏗️ 步驟2：動態配置專案資料夾結構
       run: |
-        # 建立一個暫存資料夾結構 (未來新專案只要改這裡的 HTML_PRACTICE 即可)
-        mkdir -p deploy_temp/htdocs/HTML_PRACTICE/
+        mkdir -p deploy_temp/htdocs/HTML_CSS_PRACTICE
         
-        # 排除暫存夾自己，把專案根目錄的所有網頁檔案複製進去
-        rsync -av --exclude='deploy_temp' ./ deploy_temp/htdocs/HTML_PRACTICE/
+        rsync -av --exclude='deploy_temp' --exclude='.git' --exclude='.github' ./ deploy_temp/htdocs/HTML_CSS_PRACTICE
 
-    - name: 📂 步驟3：透過 FTP 安全同步到主機根目錄
+    - name: 📂 步驟3：透過 FTP 安全同步到主機
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./deploy_temp/
-        server-dir: ./ 
+        server-dir: ./
