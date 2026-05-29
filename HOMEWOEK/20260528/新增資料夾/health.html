@@ -1,0 +1,44 @@
+<style>
+    h1 {
+        color: #FF0000;
+        font-weight: bolder;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        margin-bottom: 0px;
+        margin-left: 0px;
+    }
+
+    .nav>button {
+        margin: 0px;
+    }
+
+    .tab {
+        background-color: #42413c;
+    }
+
+    .active {
+        background-color: #FFFFFF;
+    }
+</style>
+
+<h1>
+    現在位置：首頁&lt;健康天地
+</h1>
+
+<div class="nav">
+    <button class="button active" onclick="openTab('tab1')">健康新知</button>
+    <button class="button" onclick="openTab('tab2')">菸害防制</button>
+    <button class="button" onclick="openTab('tab3')">癌症防治</button>
+    <button class="button" onclick="openTab('tab4')">慢性病防治</button>
+</div>
+
+<div>
+    <div id="tab1" class="tab active"></div>
+    <div id="tab2" class="tab"></div>
+    <div id="tab3" class="tab"></div>
+    <div id="tab4" class="tab"></div>
+</div>

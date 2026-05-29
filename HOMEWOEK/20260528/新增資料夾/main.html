@@ -1,0 +1,158 @@
+<style>
+    body {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .news {
+        float: left;
+        width: 280px;
+        height: 460px;
+        border: 1px solid black;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 16px;
+        font-weight: bolder;
+    }
+
+    table {
+        margin: auto;
+    }
+
+    th {
+        height: 32px;
+        background-color: #3399FF;
+        text-align: center;
+        color: #FFFFFF;
+        font-size: 14px;
+    }
+
+    td {
+        text-align: left;
+        line-height: 2;
+        font-size: 12px;
+    }
+
+    td:nth-child(odd) {
+        background-color: #FFFFCC;
+    }
+
+    td:nth-child(even) {
+        background-color: #DDDDDD;
+    }
+
+    .icon {
+        width: 12px;
+        height: 12px;
+        vertical-align: middle;
+        margin-right: 5px;
+        border: none;
+    }
+
+    .img {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 590px;
+        height: 460px;
+        background-color: #333333;
+        border: 1px solid black;
+    }
+
+    .big_img {
+        display: block;
+        width: auto;
+        height: 60%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .img_nav {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        width: 570px;
+        height: 140px;
+        margin: 0px;
+    }
+
+    .img_nav>div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 5px;
+    }
+
+    .small_img {
+        width: 120px;
+        height: 80px;
+    }
+
+    .img_nav p {
+        display: inline-block;
+        color: #FFFF00;
+    }
+</style>
+
+<body>
+    <div class="news">
+        <h1>最新消息</h1>
+        <table>
+            <tr>
+                <th>主題</th>
+                <th>發布日期</th>
+            </tr>
+            <tr>
+                <td><img src="./images/0201.png" alt="icon" class="icon">公告全國技能競賽相關事宜</td>
+                <td>應檢當天日期</td>
+            </tr>
+            <tr>
+                <td><img src="./images/0201.png" alt="icon" class="icon">公告即測即評及發證相關事宜</td>
+                <td>應檢當天日期</td>
+            </tr>
+            <tr>
+                <td><img src="./images/0201.png" alt="icon" class="icon">公告網頁設計修題相關事宜</td>
+                <td>應檢當天日期</td>
+            </tr>
+            <tr>
+                <td><img src="./images/0201.png" alt="icon" class="icon">公告網路架設應檢相關事宜</td>
+                <td>應檢當天日期</td>
+            </tr>
+        </table>
+    </div>
+    <div class="img">
+        <img src="./images/0202A.png" alt="第30屆倫敦奧運" id="big_img" class="big_img">
+        <div class="img_nav">
+            <div>
+                <img src="./images/0202B.png" alt="第30屆倫敦奧運" class="small_img" onclick="changeImage('./images/0202A.png')">
+                <p>第30屆倫敦奧運</p>
+            </div>
+            <div>
+                <img src="./images/0203B.png" alt="許淑淨奪舉重銀牌" class="small_img" onclick="changeImage('./images/0203A.png')">
+                <p>許淑淨奪舉重銀牌</p>
+            </div>
+            <div>
+                <img src="./images/0204B.png" alt="第26屆深圳世大運" class="small_img" onclick="changeImage('./images/0204A.png')">
+                <p>第26屆深圳世大運</p>
+            </div>
+            <div>
+                <img src="./images/0205B.png" alt="第27屆喀山世大運" class="small_img" onclick="changeImage('./images/0205A.png')">
+                <p>第27屆喀山世大運</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    function changeImage(imgSrc){
+        document.getElementById('big_img').src = imgSrc;
+    }
+</script>
